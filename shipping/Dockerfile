@@ -1,4 +1,4 @@
-FROM maven:3.5
+FROM maven
 WORKDIR /opt/server
 COPY pom.xml .
 COPY src /opt/server/src
@@ -7,3 +7,12 @@ RUN mv /opt/server/target/shipping-1.0.jar /opt/server/shipping.jar
 ENV CART_ENDPOINT="cart:8080" \
     DB_HOST="mysql"
 CMD ["java", "-jar", "shipping.jar"]
+
+
+
+## Testing the whether files and folders copy properly or not ##
+# FROM almalinuc:9
+# WORKDIR /opt/server
+# COPY pom.xml .
+# COPY src /opt/server/src
+# CMD ["sleep", "1000"]
